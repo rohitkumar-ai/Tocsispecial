@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tocsispecial - Unique Experiences & Career Opportunities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Unique Color Palette */
+        :root {
+            --primary: #5e35b1; /* Deep Purple */
+            --secondary: #ffab00; /* Amber */
+            --accent: #00c853; /* Green */
+            --dark: #1a237e; /* Navy Blue */
+            --light: #f5f5f6; /* Light Gray */
+            --text: #2d3748; /* Dark Gray */
+            --text-light: #718096; /* Medium Gray */
+            --gradient: linear-gradient(135deg, var(--primary), var(--dark));
+            --card-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.2);
+            --hover-effect: translateY(-5px) scale(1.02);
+        }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        /* Unique Button Styles */
+        .btn {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(94, 53, 177, 0.3);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            z-index: -1;
+            transition: opacity 0.4s ease;
+            opacity: 0;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(94, 53, 177, 0.4);
+        }
+        
+        .btn:hover::before {
+            opacity: 1;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            color: white;
+            border-color: transparent;
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+        
+        /* Header with Unique Logo */
+        header {
+            background: white;
+            color: var(--text);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--primary);
+        }
+        
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.6rem;
+            color: white;
+            transform: rotate(15deg);
+            box-shadow: 0 5px 15px rgba(94, 53, 177, 0.3);
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--gradient);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Hero Section with Animated Background */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(30, 27, 75, 0.85), rgba(94, 53, 177, 0.85)), 
+                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 171, 0, 0.15) 0%, transparent 30%);
+            animation: pulse 8s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(1.2);
+                opacity: 0.1;
+            }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: var(--card-shadow);
+            border-top: 5px solid var(--primary);
+        }
+        
+        .feature-card:hover {
+            transform: var(--hover-effect);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            box-shadow: 0 10px 20px rgba(94, 53, 177, 0.2);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* Job Opportunities Section */
+        .jobs {
+            background-color: white;
+        }
+        
+        .jobs-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: white;
+            border: 2px solid var(--light);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .job-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .job-card:hover {
+            transform: var(--hover-effect);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .job-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .job-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .job-meta span {
+            background: rgba(94, 53, 177, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .job-card p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        /* News Section */
+        .news {
+            background-color: var(--light);
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .news-card:hover {
+            transform: var(--hover-effect);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .news-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .news-card:hover .news-img img {
+            transform: scale(1.1);
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-date {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .news-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .news-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        /* Forms */
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(94, 53, 177, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: var(--gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .testimonials::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .testimonials .section-title h2,
+        .testimonials .section-title p {
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.4s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: var(--hover-effect);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 25px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 5rem;
+            position: absolute;
+            top: -40px;
+            left: -20px;
+            opacity: 0.2;
+            line-height: 1;
+            font-family: serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .author-info p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background-color: white;
+            text-align: center;
+        }
+        
+        .newsletter-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-input:focus {
+            border-color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+        
+        .footer-wave {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%231a237e" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%231a237e" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%231a237e"/></svg>');
+            background-size: cover;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-col a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-col a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-3px) scale(1.1);
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info i {
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            overflow-y: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            position: relative;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: var(--primary);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            section {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                transition: left 0.4s ease;
+                box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav a {
+                color: var(--text);
+                font-size: 1.2rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">T</div>
+                <span>Tocsispecial</span>
+            </a>
+            
+            <nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#jobs">Job Opportunities</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><button class="btn btn-secondary" id="applyNowBtn">Apply Now</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content animate-fade">
+                <h1>Unlock Your Potential with Tocsispecial</h1>
+                <p class="delay-1">Join our team of innovators and creators. Discover career opportunities that match your skills and aspirations.</p>
+                <div class="delay-2">
+                    <a href="#jobs" class="btn">Explore Jobs</a>
+                    <a href="#apply" class="btn btn-outline" id="heroApplyBtn">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Opportunities Section -->
+    <section class="jobs" id="jobs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Current Job Opportunities</h2>
+                <p>Find the perfect position that matches your qualifications and career goals.</p>
+            </div>
+            
+            <div class="jobs-filter">
+                <button class="filter-btn active" data-filter="all">All Positions</button>
+                <button class="filter-btn" data-filter="engineering">Engineering</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="marketing">Marketing</button>
+                <button class="filter-btn" data-filter="management">Management</button>
+            </div>
+            
+            <div class="jobs-grid">
+                <div class="job-card animate-fade" data-category="engineering">
+                    <h3>Senior Frontend Developer</h3>
+                    <div class="job-meta">
+                        <span>Full-time</span>
+                        <span>Remote</span>
+                        <span>Engineering</span>
+                    </div>
+                    <p>We're looking for an experienced frontend developer to lead our web development team and create amazing user experiences.</p>
+                    <button class="btn apply-job-btn" data-job="Senior Frontend Developer">Apply Now</button>
+                </div>
+                
+                <div class="job-card animate-fade delay-1" data-category="design">
+                    <h3>UX/UI Designer</h3>
+                    <div class="job-meta">
+                        <span>Full-time</span>
+                        <span>Hybrid</span>
+                        <span>Design</span>
+                    </div>
+                    <p>Join our design team to create intuitive and beautiful interfaces for our products and services.</p>
+                    <button class="btn apply-job-btn" data-job="UX/UI Designer">Apply Now</button>
+                </div>
+                
+                <div class="job-card animate-fade delay-2" data-category="marketing">
+                    <h3>Digital Marketing Specialist</h3>
+                    <div class="job-meta">
+                        <span>Full-time</span>
+                        <span>On-site</span>
+                        <span>Marketing</span>
+                    </div>
+                    <p>Help us grow our brand and reach new customers through innovative digital marketing strategies.</p>
+                    <button class="btn apply-job-btn" data-job="Digital Marketing Specialist">Apply Now</button>
+                </div>
+                
+                <div class="job-card animate-fade" data-category="management">
+                    <h3>Project Manager</h3>
+                    <div class="job-meta">
+                        <span>Full-time</span>
+                        <span>Remote</span>
+                        <span>Management</span>
+                    </div>
+                    <p>Lead cross-functional teams to deliver projects on time and within budget while ensuring quality standards.</p>
+                    <button class="btn apply-job-btn" data-job="Project Manager">Apply Now</button>
+                </div>
+                
+                <div class="job-card animate-fade delay-1" data-category="engineering">
+                    <h3>Backend Engineer</h3>
+                    <div class="job-meta">
+                        <span>Contract</span>
+                        <span>Remote</span>
+                        <span>Engineering</span>
+                    </div>
+                    <p>Build and maintain scalable backend systems that power our applications and services.</p>
+                    <button class="btn apply-job-btn" data-job="Backend Engineer">Apply Now</button>
+                </div>
+                
+                <div class="job-card animate-fade delay-2" data-category="design">
+                    <h3>Graphic Designer</h3>
+                    <div class="job-meta">
+                        <span>Part-time</span>
+                        <span>Remote</span>
+                        <span>Design</span>
+                    </div>
+                    <p>Create visually stunning graphics for our marketing materials, website, and social media.</p>
+                    <button class="btn apply-job-btn" data-job="Graphic Designer">Apply Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news" id="news">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest News & Updates</h2>
+                <p>Stay informed about our company news, industry trends, and career development tips.</p>
+            </div>
+            
+            <div class="news-grid">
+                <div class="news-card animate-fade">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="News 1">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">June 15, 2025</span>
+                        <h3>How to Prepare for Technical Interviews</h3>
+                        <p>Learn the best strategies to ace your technical interviews and land your dream job in tech.</p>
+                        <a href="#" class="btn btn-outline">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="news-card animate-fade delay-1">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="News 2">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">May 28, 2025</span>
+                        <h3>Remote Work Best Practices</h3>
+                        <p>Discover how to stay productive and maintain work-life balance while working remotely.</p>
+                        <a href="#" class="btn btn-outline">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="news-card animate-fade delay-2">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="News 3">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">May 10, 2025</span>
+                        <h3>Building a Career in Digital Marketing</h3>
+                        <p>Essential skills and strategies to build a successful career in the dynamic field of digital marketing.</p>
+                        <a href="#" class="btn btn-outline">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Team Members Say</h2>
+                <p>Hear from people who have built rewarding careers with Tocsispecial.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card animate-fade">
+                    <div class="testimonial-text">
+                        <p>Tocsispecial has provided me with incredible growth opportunities. The work culture fosters innovation and creativity, and I've been able to work on projects that truly challenge and excite me.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah K.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah K.</h4>
+                            <p>Senior Developer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card animate-fade delay-1">
+                    <div class="testimonial-text">
+                        <p>What I love about working here is the emphasis on work-life balance. The management truly cares about employee well-being while still maintaining high standards for our work.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael T.</h4>
+                            <p>UX Designer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card animate-fade delay-2">
+                    <div class="testimonial-text">
+                        <p>Joining Tocsispecial was the best career decision I've made. The learning opportunities are endless, and I've grown more in two years here than in five years at my previous company.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily R.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Emily R.</h4>
+                            <p>Marketing Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Modal -->
+    <div class="modal" id="applicationModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalTitle">Job Application</h2>
+            <form id="applicationForm">
+                <input type="hidden" id="jobPositionInput" name="job_position" value="">
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="full_name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="qualification">Highest Qualification *</label>
+                    <select id="qualification" name="qualification" class="form-control" required>
+                        <option value="">Select your qualification</option>
+                        <option value="high_school">High School Diploma</option>
+                        <option value="associate">Associate Degree</option>
+                        <option value="bachelor">Bachelor's Degree</option>
+                        <option value="master">Master's Degree</option>
+                        <option value="phd">PhD</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="degree">Degree/Field of Study *</label>
+                    <input type="text" id="degree" name="degree" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="college">College/University *</label>
+                    <input type="text" id="college" name="college" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience">Years of Experience *</label>
+                    <input type="number" id="experience" name="experience" class="form-control" min="0" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="resume">Upload Resume/CV *</label>
+                    <input type="file" id="resume" name="resume" class="form-control" accept=".pdf,.doc,.docx" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="coverLetter">Cover Letter</label>
+                    <textarea id="coverLetter" name="cover_letter" class="form-control" placeholder="Tell us why you're the perfect candidate for this position..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="query">Any Questions?</label>
+                    <textarea id="query" name="query" class="form-control" placeholder="Do you have any questions for us?"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="section-title">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for job alerts, career tips, and company news.</p>
+            </div>
+            
+            <form class="newsletter-form animate-fade" id="newsletterForm">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-wave"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">T</div>
+                        <span>Tocsispecial</span>
+                    </a>
+                    <p>Connecting talent with opportunity. Building careers that matter.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#jobs">Job Opportunities</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Career Resources</h3>
+                    <ul>
+                        <li><a href="#">Interview Tips</a></li>
+                        <li><a href="#">Resume Builder</a></li>
+                        <li><a href="#">Career Guides</a></li>
+                        <li><a href="#">Salary Calculator</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Prayagraj City</li>
+                        <li><i class="fas fa-phone"></i> 1234567890</li>
+                        <li><i class="fas fa-envelope"></i> careers@tocsispecial.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 5PM</li>
+                    
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Tocsispecial.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Job Filtering Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const jobCards = document.querySelectorAll('.job-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active state on buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filterValue = button.dataset.filter;
+                
+                // Filter job cards
+                jobCards.forEach(card => {
+                    if (filterValue === 'all' || card.dataset.category === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Application Modal Functionality
+        const applicationModal = document.getElementById('applicationModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const jobPositionInput = document.getElementById('jobPositionInput');
+        const applyJobButtons = document.querySelectorAll('.apply-job-btn');
+        const applyNowButtons = document.querySelectorAll('#applyNowBtn, #heroApplyBtn');
+        const closeModal = document.querySelector('.close-modal');
+        
+        // Open modal with specific job position
+        applyJobButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const jobTitle = button.dataset.job;
+                modalTitle.textContent = `Apply for ${jobTitle}`;
+                jobPositionInput.value = jobTitle;
+                applicationModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Open generic application modal
+        applyNowButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modalTitle.textContent = 'General Application';
+                jobPositionInput.value = 'General Application';
+                applicationModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+                
+                // Scroll to top if needed
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            applicationModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === applicationModal) {
+                applicationModal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Form Submission
+        const applicationForm = document.getElementById('applicationForm');
+        
+        applicationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(applicationForm);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+            
+            // In a real application, you would send this data to your backend
+            console.log('Form submitted:', formObject);
+            
+            // Show success message
+            alert(`Thank you for your application, ${formObject.full_name}! We'll review your information and get back to you soon.`);
+            
+            // Reset form and close modal
+            applicationForm.reset();
+            applicationModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Newsletter Form Submission
+        const newsletterForm = document.getElementById('newsletterForm');
+        
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            
+            if (emailInput.value) {
+                // In a real app, you would send this to your backend
+                alert('Thank you for subscribing to our newsletter!');
+                emailInput.value = '';
+            }
+        });
+        
+        // Animate elements when they come into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-fade');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Run once on page load
+        window.addEventListener('DOMContentLoaded', animateOnScroll);
+        
+        // Run on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Sticky Header on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+            }
+        });
+        
+        // Qualification-based job recommendations
+        const qualificationSelect = document.getElementById('qualification');
+        const degreeInput = document.getElementById('degree');
+        
+        qualificationSelect.addEventListener('change', () => {
+            const qualification = qualificationSelect.value;
+            let recommendedJobs = [];
+            
+            // Simple recommendation logic based on qualification
+            switch(qualification) {
+                case 'bachelor':
+                case 'master':
+                case 'phd':
+                    recommendedJobs = ['Senior Frontend Developer', 'Backend Engineer', 'Project Manager'];
+                    break;
+                case 'associate':
+                    recommendedJobs = ['UX/UI Designer', 'Graphic Designer', 'Digital Marketing Specialist'];
+                    break;
+                case 'high_school':
+                    recommendedJobs = ['Graphic Designer', 'Digital Marketing Specialist'];
+                    break;
+                default:
+                    recommendedJobs = [];
+            }
+            
+            // In a real app, you would show these recommendations to the user
+            console.log('Recommended jobs based on qualification:', recommendedJobs);
+        });
+        
+        // Degree-based job function suggestions
+        degreeInput.addEventListener('input', () => {
+            const degree = degreeInput.value.toLowerCase();
+            let jobFunction = '';
+            
+            // Simple matching based on degree keywords
+            if (degree.includes('computer') || degree.includes('software') || degree.includes('engineering')) {
+                jobFunction = 'Engineering';
+            } else if (degree.includes('design') || degree.includes('art') || degree.includes('creative')) {
+                jobFunction = 'Design';
+            } else if (degree.includes('business') || degree.includes('management') || degree.includes('administration')) {
+                jobFunction = 'Management';
+            } else if (degree.includes('marketing') || degree.includes('communication') || degree.includes('media')) {
+                jobFunction = 'Marketing';
+            }
+            
+            if (jobFunction) {
+                console.log('Suggested job function based on degree:', jobFunction);
+                // In a real app, you might highlight relevant jobs or show suggestions
+            }
+        });
+    </script>
+</body>
+</html>
